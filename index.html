@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PUNK ROCK</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Staatliches&family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
+    /* MOVING PHOTO BACKGROUND */
+    body {
+        margin: 0;
+        color: #e6e6e6;
+        font-family: 'Special Elite', monospace;
+        overflow-x: hidden;
+
+        /* Dark grey base */
+        background-color: #1a1a1a;
+
+        /* Moving background image */
+        background-image: 
+            linear-gradient(rgba(20,20,20,0.7), rgba(20,20,20,0.7)),
+            url("/istockphoto-2097917907-612x612.jpg"); /* Replace with your image */
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        animation: bgMove 400s linear infinite;
+    }
+
+    @keyframes bgMove {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 0%; }
+    }
+
+    /* Header */
+    header {
+        padding: 40px;
+        text-align: center;
+        background: linear-gradient(90deg, #023453, #2c5f23);
+        color: black;
+        font-family: 'Rubik Glitch', cursive;
+        font-size: 60px;
+        letter-spacing: 4px;
+        text-shadow: 2px 2px 0px #000;
+        animation: glitch 1.5s infinite;
+    }
+
+    @keyframes glitch {
+        0% { text-shadow: 2px 2px #ff0000; }
+        50% { text-shadow: -2px -2px #00e5ff; }
+        100% { text-shadow: 2px 2px #ff0000; }
+    }
+
+    /* Navigation */
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px;
+        background: #111;
+        border-bottom: 2px dashed #ffffff;
+    }
+
+    nav a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 22px;
+        font-family: 'Staatliches', sans-serif;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        color: #666063;
+        transform: scale(1.2) rotate(-3deg);
+    }
+
+    /* Content */
+    .container {
+        padding: 40px;
+        max-width: 900px;
+        margin: auto;
+        line-height: 1.7;
+        font-size: 20px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 10px;
+    }
+
+    h2 {
+        font-family: 'Staatliches', sans-serif;
+        font-size: 40px;
+        color: #3e8e30;
+        text-shadow: 2px 2px #000;
+    }
+
+    /* Carousel */
+    .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 700px;
+        margin: 40px auto;
+        overflow: hidden;
+        border: 4px solid #000000;
+        box-shadow: 0 0 20px #ffffff;
+        border-radius: 5%;
+    }
+
+    .carousel img {
+        width: 100%;
+        display: none;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .carousel img.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .carousel-controls button,
+.video-controls button {
+    background: #ffffff;
+    color: #000;
+    border: 4px solid #000;
+
+    padding: 18px 35px;
+    margin: 10px;
+
+    font-family: 'Staatliches', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transform: rotate(-2deg);
+
+    box-shadow:
+        6px 6px 0 #000,
+        0 0 15px rgba(255,255,255,.5);
+
+    transition: all .2s ease;
+}
+
+.carousel-controls button:nth-child(even),
+.video-controls button:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.carousel-controls button:hover,
+.video-controls button:hover {
+    background: #39ff14;
+    color: #000;
+
+    transform: scale(1.08) rotate(-3deg);
+
+    box-shadow:
+        10px 10px 0 #000,
+        0 0 25px #39ff14;
+}
+
+.carousel-controls button:active,
+.video-controls button:active {
+    transform: translate(4px,4px);
+    box-shadow: 2px 2px 0 #000;
+}
+
+    /* Typewriter intro */
+    #typewriter {
+        font-size: 26px;
+        color: #c00000;
+        margin-bottom: 30px;
+        border-right: 3px solid #39ff14;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0;
+        animation: typing 4s steps(40) forwards, blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
+
+    .video-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 40px auto;
+    overflow: hidden;
+    border: 4px solid #000;
+    box-shadow: 0 0 20px #ffffff;
+    border-radius: 5%;
+}
+
+.video-carousel video {
+    width: 100%;
+    display: none;
+}
+
+.video-carousel video.active {
+    display: block;
+}
+
+.video-controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.punk-profile {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.punk-profile img {
+    width: 200px;
+    height: 200px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 6px solid #fff;
+
+    box-shadow:
+        0 0 20px #39ff14,
+        0 0 40px #39ff14,
+        8px 8px 0 #000;
+
+    transition: 0.3s ease;
+}
+
+.punk-profile img:hover {
+    transform: scale(1.05) rotate(-3deg);
+}
+
+.music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+
+    background: #39ff14;
+    color: #000;
+    border: 4px solid #000;
+    padding: 15px 25px;
+
+    font-family: 'Staatliches', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+
+    box-shadow: 6px 6px 0 #000;
+    cursor: pointer;
+}
+
+.music-btn:hover {
+    background: #fff;
+    transform: rotate(-3deg) scale(1.08);
+}
+
+</style>
+</head>
+
+<body>
+
+    <audio id="bgSong" loop>
+        <source src="./song.mp3" type="audio/mpeg">
+    </audio>
+    
+    <button class="music-btn" onclick="toggleMusic()">PLAY MUSIC</button>
+
+<header>THE ORIGINS OF PUNK ROCK</header>
+
+
+
+<div class="container">
+
+    <div id="typewriter">Documenting the rise of punk — raw, loud, and unapologetic.</div>
+
+    <div class="punk-profile">
+        <img src="./ADMP2005.jpg" alt="">
+    </div>
+
+    <h2 id="origins">BACKGROUND INFORMATION ON PUNK ROCK (NYC)</h2>
+    <p> The origin of the word “punk” is that it was used as a derogatory prison term against homosexuals and other people who did not fit within the boxes that society provided for them. Before that, it was used by Shakespeare to describe homosexuals as well. Eventually, in the 1950’s, it was used to describe rock music that critics deemed too “out there”. During the 1970s, New York was reportedly a madhouse due to the lack of laws. From this chaos, a new movement was created. In 1976, Alan Vega adopted the term to describe his band “Suicide” and put posters around New York City as promotion. 
+    </p>
+    <p> Surprisingly, the movement was a hit, and people began adopting it. Many felt at peace with the music and the politics behind it because they felt as though it allowed them to be themselves. It was a stark contrast to the Hippie movement of the 1960s and 70s. Hippies liked to escape reality, while punks embraced it and had a “what can we do about it” attitude. It was an interesting way of turning similar political values into two completely different movements. Many people not involved in either movement felt less threatened by the hippie movement because they felt as though the hippies would stay in their imagined bubble rather than lashing out as the punks did. 
+    </p>
+    <p>In the East Village, the punks moved into the nightclubs where the Hippies once were. Even famous artists such as Andy Warhol moved to popularize the movement, showcasing the art and attracting people who otherwise would not experience the subculture. Even though famous artists were present, the punks were challenging the commercialization of the music scene and the complacency of the other alternative movements of the time. The music was described as abrasive and offensive. The most important aspect of the movement was for people to be themselves.
+    </p>
+
+    <h2 id="bands">CONNECT TO AUTHORITARIAN STATES (THE CULTURE) (Eastern Bloc)</h2>
+    <p>	Punk rock’s philosophy is decentralized, anti-authoritarian, and self-reliant, rejecting consumerism and conformity while encouraging critical thinking. During the Cold War in the Eastern Bloc, cultural expression was perceived as a direct challenge to the state’s controlled connotation of truth. Punk culture relied on raw and independent energy, and it bypassed state-controlled music conservatories and government censors.
+    </p>
+    <p> In the East German punk scene known as Ostpunk, the Stasi, which was the official intelligence service and secret police of communist East Germany, viewed them as a major threat. These authorities often cracked down on performances and arrested musicians for “anti-state agitation” and often forcibly put punks into the military to dismantle local scenes.
+    </p>
+    <p> Additionally, in the Soviet Union, state-sanctioned music was highly regulated and patriotic. To work around this, Soviet punks made “bone music” by recording Western punk onto discarded hospital X-rays. Inside their sound, they infused themes of depression, substance abuse, and anti-establishment.
+    </p>
+    <p>Other countries, like Hungary and Czechoslovakia, witnessed the rise of punk rock, leading to mass persecution of punk members.
+    </p>
+
+    <h2 id="culture">CONNECT TO IMAGINED COMMUNITIES BENEDICT ANDERSON (London)</h2>
+    <p>The idea of imagined communities was developed by Benedict Anderson in his most famous book. He states that a nation is a social construct, rooted in the fall of governments and the rise of a shared identity through technology and culture. He also notes that nations maintain some of the systems that they overthrew in the first place. Even when people have the same goals, national identity will lead them to turn against each other. 
+    </p>
+    <p>We see this when we turn to the punk movement, especially in London, through fashion. The punk movement was a response to the Hippie movement, and punks shared the Hippies' goals but wanted to pursue them differently. Additionally, the way that the punks dressed themselves was distinct from everyone else, and they were easy to spot in a crowd of people not involved in the subculture. Designers like Vivienne Westwood commercialized the idea of punk and made it something that people could buy into. Because of the way that the punks portrayed themselves, they felt at home even without sharing their ideas. 
+    </p>
+    <p> In 1975, Richard Hell was seen in the East Village in NYC when Malcom McLaren of London decided to expand the movement there. His wife, Vivienne Westwood, popularized the punk movement within the UK with the shared identity of fashion. 
+    </p>
+
+    <h2 id="culture">PEOPLE TURN TO ALTERNATIVE MOVEMENTS SUCH AS THESE WHEN THINGS GO WRONG - TODAY</h2>
+    <p> Today, people turn to punk and other alternative movements because it allows them to feel free and escape the current political climate. Check out these photos and videos from the NJ scene! </p>
+
+    <h2 id="gallery">Gallery</h2>
+
+    <div class="carousel">
+        <img src="./Photo1.png" class="active">
+        <img src="./photo2.png">
+        <img src="./Photo3.png">
+        <img src="./Photo4.png">
+    </div>
+
+    <div class="carousel-controls">
+        <button onclick="prevImage()">Prev</button>
+        <button onclick="nextImage()">Next</button>
+    </div>
+
+
+
+    <h2 id="videos">NJ Punk Scene Videos</h2>
+
+    <div class="video-carousel">
+        <video class="active" controls>
+            <source src="./Clo.mov">
+        </video>
+    
+        <video controls>
+            <source src="./JJ.mov">
+        </video>
+    
+        <video controls>
+            <source src="./Acetomenophine.MOV">
+        </video>
+    
+        <video controls>
+            <source src="./HighKid.mov">
+        </video>
+    </div>
+    
+    <div class="video-controls">
+        <button onclick="prevVideo()">Prev Video</button>
+        <button onclick="nextVideo()">Next Video</button>
+    </div>
+
+<script>
+    // Carousel Logic
+    let index = 0;
+    const images = document.querySelectorAll('.carousel img');
+
+    function showImage(i) {
+        images.forEach(img => img.classList.remove('active'));
+        images[i].classList.add('active');
+    }
+
+    function nextImage() {
+        index = (index + 1) % images.length;
+        showImage(index);
+    }
+
+    function prevImage() {
+        index = (index - 1 + images.length) % images.length;
+        showImage(index);
+    }
+
+    let videoIndex = 0;
+const videos = document.querySelectorAll('.video-carousel video');
+
+function showVideo(i) {
+    videos.forEach(video => {
+        video.classList.remove('active');
+        video.pause();
+    });
+
+    videos[i].classList.add('active');
+}
+
+function nextVideo() {
+    videoIndex = (videoIndex + 1) % videos.length;
+    showVideo(videoIndex);
+}
+
+function prevVideo() {
+    videoIndex = (videoIndex - 1 + videos.length) % videos.length;
+    showVideo(videoIndex);
+}
+
+const bgSong = document.getElementById("bgSong");
+const musicBtn = document.querySelector(".music-btn");
+
+function toggleMusic() {
+    if (bgSong.paused) {
+        bgSong.play();
+        musicBtn.textContent = "PAUSE MUSIC";
+    } else {
+        bgSong.pause();
+        musicBtn.textContent = "PLAY MUSIC";
+    }
+}
+
+</script>
+
+</body>
+
+</html>
